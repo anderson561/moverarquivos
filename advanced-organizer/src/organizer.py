@@ -90,10 +90,23 @@ class FileOrganizer:
 
 if __name__ == "__main__":
     import argparse
+    import tkinter as tk
+    from tkinter import filedialog
+
     parser = argparse.ArgumentParser(description="Organizador Avançado de Arquivos")
-    parser.add_argument("--path", type=str, default=r"C:\Users\ANDERSON\Desktop", help="Caminho da pasta a ser organizada")
+    parser.add_argument("--path", type=str, default=None, help="Caminho da pasta a ser organizada")
     parser.add_argument("--real", action="store_true", help="Executa a movimentação real dos arquivos (caso contrário, apenas simula)")
     args = parser.parse_args()
-    
+
+    # If no path provided, open a folder selection dialog
+    if not args.path:
+        root = tk.Tk()
+        root.withdraw()  # Hide the root window
+        selected_path = filedialog.askdirectory(title="Selecione a pasta a ser organizada")
+        if not selected_path:
+            logger.error("Nenhum caminho selecionado. Encerrando.")
+            exit(1)
+        args.path = selected_path
+
     organizer = FileOrganizer(base_path=args.path, dry_run=not args.real)
     organizer.organize()

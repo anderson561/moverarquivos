@@ -1,35 +1,63 @@
-# Virtual environment
-.venv/
-venv/
-ENV/
-
-# Python cache
-**/__pycache__/
+# Byte-compiled / optimized / DLL files
+__pycache__/
 *.py[cod]
 *$py.class
 
-# PyInstaller / Build
-**/build/
-**/dist/
-**/*.spec
+# C extensions
+*.so
 
-# Agent / Tooling / IDEs
-.antigravity/
-.idea/
-.vscode/
+# Distribution / packaging
+build/
+/dist/
+/*.egg-info/
+*.egg
+*.tgz
+*.whl
 
-# Local logs
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+,coverage.xml
+,tests.xml
+nosetests.xml
+coverage.xml
+*,cover
 *.log
 
-# Textpattern / PHP rules from remote
-.htaccess
-css.php
-rpc/
-sites/site*/admin/
-sites/site*/private/
-sites/site*/public/admin/
-sites/site*/public/setup/
-sites/site*/public/theme/
-textpattern/
-HISTORY.txt
-README.txt
+# PyInstaller
+*.spec
+*.exe
+
+# Virtual environment
+.venv/
+env/
+ENV/
+venv/
+
+# IDE / editor settings
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Obsidian artifacts (notes are in vault, not repo)
+.docs/
+
+# Misc
+.DS_Store
+Thumbs.db
+
+# Ruff cache
+.ruff_cache/
+
+# Pytest cache
+.pytest_cache/
+
+# Antigravity & agent files (local tooling)
+.antigravity/
+.agent/
